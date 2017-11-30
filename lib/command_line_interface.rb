@@ -4,6 +4,7 @@ require 'nokogiri'
 require 'colorize'
 
 class CommandLineInteface
+  search_url = "https://philadelphia.craigslist.org/search/sss?query=hp+laptop+8gb&max_price=750" #Only Temporary
 
   def run
     make_listings
