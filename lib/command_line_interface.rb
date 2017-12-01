@@ -1,5 +1,5 @@
-require_relative "../lib/scraper.rb"
-require_relative "../lib/student.rb"
+require_relative "../lib/craigslist_scraper.rb"
+require_relative "../lib/listing.rb"
 require 'nokogiri'
 require 'colorize'
 
@@ -26,7 +26,12 @@ class CommandLineInteface
 
   def display_listings
     Listing.all.each do |listing|
-      puts "#{listing.title}".colorize(:blue)
+      puts "#{listing.listing_url}".colorize(:blue)
+      puts "  title:".colorize(:light_blue) + " #{listing.title}"
+      puts "  price:".colorize(:light_blue) + " #{listing.price}"
+      puts "  location:".colorize(:light_blue) + " #{listing.location}"
+      puts "  description:".colorize(:light_blue) + " #{listing.description}"
+      puts "----------------------".colorize(:green)
     end
   end
 
