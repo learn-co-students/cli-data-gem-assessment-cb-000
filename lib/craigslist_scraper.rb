@@ -2,17 +2,17 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-search_url = "https://philadelphia.craigslist.org/search/sss?query=hp+laptop+8gb&max_price=750" #Only Temporary
 
 class CraigslistScraper
   def self.scrape_search_page(search_url)
     html = open(search_url)
-    listings = Nokogiri::HTML(html)
-# listings.css("li.result-row time").attribute("datetime").value #date/time
-# listings.css("li.result-row a.result-image").first.text.strip #price
-# listings.css("li.result-row a.result-title").first.text.strip #title
-# listings.css("li.result-row span.result-meta span.result-hood").first.text.strip #location
-    listing_url = listings.css("li.result-row a").attribute("href").value
+    search = Nokogiri::HTML(html)
+# search.css("li.result-row time").attribute("datetime").value #date/time
+# search.css("li.result-row a.result-image").first.text.strip #price
+# search.css("li.result-row a.result-title").first.text.strip #title
+# search.css("li.result-row span.result-meta span.result-hood").first.text.strip #location
+    @@listings = []
+    search.css("li.result-row").map {|listing| {:listing_url => listing.css("a").attribute("href").value}}
   end
 
 
@@ -20,11 +20,12 @@ class CraigslistScraper
   def self.scrape_listing_page(listing_url)
     html2 = open(listing_url)
     listing = Nokogiri::HTML(html2)
-# listing.css("h2.postingtitle #titletextonly").text #title
-# listing.css("h2.postingtitle .price").text #price
-# listing.css("h2.postingtitle small").text.strip #location
-# listing.css("#postingbody").text.strip #Description
-
+    {
+     :title => listing.css("h2.postingtitle #titletextonly").text, #title
+     :price => listing.css("h2.postingtitle .price").text, #price
+     :location => listing.css("h2.postingtitle small").text.strip, #location
+     :description => listing.css("#postingbody").text.strip #Description
+    }
   end
 
 end
