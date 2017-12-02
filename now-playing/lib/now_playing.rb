@@ -6,5 +6,5 @@ require "now/version"
 require "now/cli"
 require "now/movie"
 
-module NowPlaying
+module Now
 end
