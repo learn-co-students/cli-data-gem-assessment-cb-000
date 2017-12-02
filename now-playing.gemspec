@@ -6,12 +6,11 @@ require "now/playing/version"
 Gem::Specification.new do |spec|
   spec.name          = "now-playing"
   spec.version       = Now::Playing::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.authors       = ["Miguel Gonzalez"]
+  spec.email         = ["sb.mgonzalez1@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Flatiron School CLI scraper project}
+  spec.homepage      = "https://github.com/SpartanGeek2014/cli-data-gem-assessment-cb-000"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
