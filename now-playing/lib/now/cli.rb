@@ -1,4 +1,4 @@
-class NowPlaying::CLI #opens the app
+class NowPlaying::CLI
   def call
     start
   end
@@ -8,12 +8,12 @@ class NowPlaying::CLI #opens the app
     puts "************* Now Playing in Theatres *************"
     puts ""
     NowPlaying::Movie.all.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.name}" #finds and then prints the movie name
+      puts "#{i}. #{movie.name}"
     end
     puts ""
   end
 
-  def print_movie(movie) # prints out details provided on site about movie including summary and stars
+  def print_movie(movie)
     puts ""
     puts "-------------- #{movie.name} --------------"
 
@@ -30,10 +30,10 @@ class NowPlaying::CLI #opens the app
     input = nil
     while input != "exit"
       puts ""
-      puts "What movie would you more information on, by name or number?" # asks app user for movie name to scrape for that title
+      puts "What movie would you more information on, by name or number?"
       puts ""
       puts "Enter list to see the movies again."
-      puts "Enter exit to end the program." #asks to end the program
+      puts "Enter exit to end the program."
       puts ""
       input = gets.strip
       if input == "list"
