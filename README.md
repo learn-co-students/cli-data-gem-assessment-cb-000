@@ -8,3 +8,5 @@ information.
 
 You can enter in the title of a movie and pull the available summary, actors' names, director, writer, and other
 pertinent information.
+
+# HOW TO LAUNCH
