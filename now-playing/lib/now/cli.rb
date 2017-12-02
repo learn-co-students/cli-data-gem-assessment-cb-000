@@ -1,4 +1,4 @@
-class NowPlaying::CLI
+class Now::CLI
   def call
     start
   end
@@ -7,7 +7,7 @@ class NowPlaying::CLI
     puts ""
     puts "************* Now Playing in Theatres *************"
     puts ""
-    NowPlaying::Movie.all.each.with_index(1) do |movie, i|
+    Now::Movie.all.each.with_index(1) do |movie, i|
       puts "#{i}. #{movie.name}"
     end
     puts ""
@@ -39,11 +39,11 @@ class NowPlaying::CLI
       if input == "list"
         list
       elsif input.to_i == 0
-        if movie = NowPlaying::Movie.find_by_name(input)
+        if movie = Now::Movie.find_by_name(input)
           print_movie(movie)
         end
       elsif input.to_i > 0
-        if movie = NowPlaying::Movie.find(input.to_i)
+        if movie = Now::Movie.find(input.to_i)
           print_movie(movie)
         end
       end
