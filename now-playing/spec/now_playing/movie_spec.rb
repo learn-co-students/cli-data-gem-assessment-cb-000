@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe NowPlaying::Movie do
+RSpec.describe Now::Movie do
   context 'Class Methods' do
     # The IMDB website is where we'll scrape our info from for this project
     # I've personally used it, so I know it is updated and well-informed
@@ -10,12 +10,12 @@ RSpec.describe NowPlaying::Movie do
         example.run
       end
     end
-    let(:movies){NowPlaying::Movie.all}
+    let(:movies){Now::Movie.all}
 
     describe '.all' do
       it 'returns an array of movies' do
         expect(movies).to be_an(Array)
-        expect(movies.first).to be_a(NowPlaying::Movie)
+        expect(movies.first).to be_a(Now::Movie)
       end
 
       it 'correctly scrapes names and urls for the movies' do
@@ -26,19 +26,19 @@ RSpec.describe NowPlaying::Movie do
 
     describe '.find' do
       it 'returns the movie based on position in @@all' do
-        expect(NowPlaying::Movie.find(1)).to eq(movies[0])
+        expect(Now::Movie.find(1)).to eq(movies[0])
       end
     end
 
     describe '.find_by_name' do
       it 'returns the movie based on the name' do
-        expect(NowPlaying::Movie.find_by_name("The 33")).to eq(movies[0])
+        expect(Now::Movie.find_by_name("The 33")).to eq(movies[0])
       end
     end
   end
 
   context 'Instance Methods' do
-    subject{NowPlaying::Movie.new("The 33 (2015)", "http://imdb.com/title/tt2006295/")}
+    subject{Now::Movie.new("The 33 (2015)", "http://imdb.com/title/tt2006295/")}
 
     describe '#name' do
       it 'has a name' do
