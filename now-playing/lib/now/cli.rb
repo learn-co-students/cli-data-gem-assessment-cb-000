@@ -46,8 +46,13 @@ class Now::CLI
         if movie = Now::Movie.find(input.to_i)
           print_movie(movie)
         end
+
       end
+
     end
+
     puts "Goodbye!!!"
+
   end
+
 end
