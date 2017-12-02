@@ -13,7 +13,7 @@
     spec.files         = `git ls-files`.split($\)
     spec.executables   = ["now-playing"]
     spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-    spec.name          = "now-cli-gem"
+    spec.name          = "cli-data-gem-assessment-cb-000"
     spec.require_paths = ["lib"]
     spec.require_paths = ["lib", "lib/now"]
     spec.version       = Now::VERSION
