@@ -1,4 +1,4 @@
-class Student
+class Listing
 
   attr_accessor :title, :price, :location, :listing_url, :description
 
@@ -13,7 +13,7 @@ class Student
     listings_array.each {|listing| Listing.new(listing)}
   end
 
-  def add_listing_details(details_hash)
+  def add_details(details_hash)
     details_hash.each {|key, value| self.send(("#{key}="), value)}
   end
 

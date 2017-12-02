@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'colorize'
 
 class CommandLineInteface
-  search_url = "https://philadelphia.craigslist.org/search/sss?query=hp+laptop+8gb&max_price=750" #Only Temporary
+  SEARCH_URL = "https://philadelphia.craigslist.org/search/sss?query=hp+laptop+8gb&max_price=750" #Only Temporary
 
   def run
     make_listings
@@ -13,14 +13,14 @@ class CommandLineInteface
   end
 
   def make_listings
-    listings_array = CraigslistScraper.scrape_search_page(search_url)
-    Student.create_from_collection(listings_array)
+    listings_array = CraigslistScraper.scrape_search_page(SEARCH_URL)
+    Listing.create_from_collection(listings_array)
   end
 
   def add_details_to_listings
     Listing.all.each do |listing|
-      details = CraiglistScraper.scrape_listing_page(listing_url)
-      listing.add_details(attributes)
+      details = CraigslistScraper.scrape_listing_page(listing.listing_url)
+      listing.add_details(details)
     end
   end
 
