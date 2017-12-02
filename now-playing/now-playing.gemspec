@@ -16,5 +16,5 @@
     spec.name          = "now-cli-gem"
     spec.require_paths = ["lib"]
     spec.require_paths = ["lib", "lib/now"]
-    spec.version       = NowPlaying::VERSION
+    spec.version       = Now::VERSION
     spec.license       = "MIT"
