@@ -8,14 +8,6 @@ class NowPlaying::CLI
   end
 
   def list_movies
-    puts <<-DOC.gsub /^\s*/, ''
-      Rocky
-      All The Presidents Men
-      Pirates of the Caribbean
-      Rush
-      Alfie
-      The Pink Panther
-    DOC
     @movies = NowPlaying::Playing.today
   end
 
