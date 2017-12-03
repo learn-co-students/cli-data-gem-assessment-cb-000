@@ -16,6 +16,16 @@ class NowPlaying::Playing
     movie_2.theater = "Camino Real"
     movie_2.url = "https://www.fandango.com/wonder-199146/movie-overview"
 
-    [movie_1, movie_2]
+    movie_3 = self.new
+    movie_3.name = "Daddy's Home"
+    movie_3.theater = "Fairview Twin"
+    movie_3.url = "https://www.fandango.com/daddys-home-2-202199/movie-overview"
+
+    movie_4 = self.new
+    movie_4.name = "Thor: Ragnarok"
+    movie_4.theater = "Camino Real"
+    movie_4.url = "https://www.fandango.com/thor-ragnarok-2017-199155/movie-overview"
+
+    [movie_1, movie_2, movie_3, movie_4]
   end
 end
