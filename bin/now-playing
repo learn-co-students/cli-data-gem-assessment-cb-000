@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-NowPlaying::CLI.new.call
+require './lib/now'
+
+Now::CLI.new.call

@@ -1,7 +1,3 @@
-require "now/playing/version"
+require_relative "./now/version"
 
-module Now
-  module Playing
-    # Your code goes here...
-  end
-end
+require_relative './now/cli'
