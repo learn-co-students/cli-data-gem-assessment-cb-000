@@ -16,6 +16,7 @@ class NowPlaying::CLI
       Alfie
       The Pink Panther
     DOC
+    @movies = NowPlaying::Playing.today
   end
 
   def menu

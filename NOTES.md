@@ -1,4 +1,4 @@
-All the notes surrounding the creation of this project.
+#All the notes surrounding the creation of this project.
 
 While watching the videos and other info accompanying this lesson, I chose to use the Bundler method to create
 the primary architecture and framework for the app overall.  From there, I added the code necessary to bring it
