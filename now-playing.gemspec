@@ -38,6 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry"
 
-  spec.add_dependancy "nokogiri"
-  spec.add_dependancy "open-uri"
+  spec.add_dependency "nokogiri"
 end
