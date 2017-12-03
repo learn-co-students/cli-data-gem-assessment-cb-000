@@ -9,7 +9,7 @@ class NowPlaying::CLI
   def list_movies
     puts <<-DOC.gsub /^\s*/, ''
       Rocky
-      All The Presidents menu
+      All The Presidents Men
       Pirates of the Caribbean
       Rush
       Alfie
