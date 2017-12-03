@@ -1,8 +1,8 @@
 # My Ruby CLI project for Flatiron School
 
 After going through the various assignment options, I decided to use my personal love of movies and create a
-CLI project that will pull various chosen movies from IDBD.com, which is a fairly good source for Hollywood film
-information.
+CLI project that will pull various chosen movies from the Fandango.com website, which is updated frequently and I've yet
+to have them give bad showtimes, summary, and video trailer information for movies and theaters in my area.
 
 # WHAT WILL IT DO?
 

@@ -10,5 +10,8 @@ class NowPlaying::Playing
       Alfie
       The Pink Panther
     DOC
+    movie_1 = Movie.new
+    movie_1.name = "Rocky"
+    movie_1
   end
 end
