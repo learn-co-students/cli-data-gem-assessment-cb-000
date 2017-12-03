@@ -4,6 +4,7 @@ class NowPlaying::CLI
     puts "Your Path to Hollywood:"
     list_movies
     menu
+    goodbye
   end
 
   def list_movies
