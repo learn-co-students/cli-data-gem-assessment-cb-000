@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Miguel Gonzalez"]
   spec.email         = ["sb.mgonzalez1@gmail.com"]
 
-  spec.summary       = %q{Flatiron School CLI scraper project}
+  spec.summary       = %q{Flatiron School CLI scraper project and is called "NowPlaying"}
   spec.description   = %q{This is the CLI scraper project I produced from scratch. I chose to go with
   a movie info app that will give the user a means of entering a title and getting back a summary, actors names,
   and other pertinent info about the film. All the info will be drawn from the IMDB database, which is wiki in nature,
