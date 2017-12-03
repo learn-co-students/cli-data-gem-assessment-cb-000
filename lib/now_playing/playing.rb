@@ -2,7 +2,7 @@
 # times, locations, and other data that will help users make an informed decision
 
 class NowPlaying::Playing
-  attr_accessor :name, :price, :theater, :url
+  attr_accessor :name, :theater, :url
 
   def self.today
 
