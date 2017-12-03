@@ -1,2 +1,2 @@
-require_relative "now/version"
-require_relative "now/cli"
+require_relative "now_playing/version"
+require_relative "now_playing/cli"
