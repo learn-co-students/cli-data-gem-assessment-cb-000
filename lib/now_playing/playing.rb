@@ -2,10 +2,10 @@
 # times, locations, and other data that will help users make an informed decision
 
 class NowPlaying::Playing
-  attr_accessor :name, :theater, :url
+  attr_accessor :name, :theater, :url, :summary
 
   def self.today
-
+    # scrape Fandango and return info for new movies playing in local theaters
     movie_1 = self.new
     movie_1.name = "Coco"
     movie_1.theater = "Fairview Twin"
