@@ -1,4 +1,4 @@
-# I'm designing this around the Fandango site, so I can pull movie info by name (title),
+# I'm designing this around the IMDB site, so I can pull movie info by name (title),
 # times, locations, and other data that will help users make an informed decision
 
 class NowPlaying::Playing
@@ -14,13 +14,13 @@ class NowPlaying::Playing
       # scrape movie info from their website
       # instantiate a return that shows info for chosen movie
       movies = []
-      movies << self.scrape_fandango
+      movies << self.scrape_imdb
       movies
     end
 
-    def self.scrape_fandango
-      doc = Nokogiri::HTML(open("https://www.fandango.com"))
-      name = doc.search("h1.subnav_title").text
+    def self.scrape_imdb
+      doc = Nokogiri::HTML(open("http://www.imdb.com"))
+      name = doc.search("h1.itemprop="name"").text
       theater = doc.search("div.movie-showtimes_theater").text
       url =
       summary = doc.search("").text
