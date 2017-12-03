@@ -1,5 +1,2 @@
 require_relative "now/version"
-
-module NowPlaying
-
-end
+require_relative "now/cli"
