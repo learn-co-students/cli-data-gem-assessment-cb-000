@@ -8,6 +8,7 @@ class NowPlaying::CLI
   end
 
   def list_movies
+    puts "Most recent releases: "
     @movies = NowPlaying::Playing.today
   end
 
@@ -16,12 +17,9 @@ class NowPlaying::CLI
     while input != "exit"
       puts "Enter the title of the film you're looking for or type movies for more titles or type exit:"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "Title of movie 1..."
-      when "2"
-        puts "Title of movie 2..."
-      when "movies"
+      if input.to_i > 0
+        puts @movies[input.to_i-1]
+      elsif input == "list"
         list_movies
       else
         puts "What are you looking for this evening?"
