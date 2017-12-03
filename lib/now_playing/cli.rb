@@ -29,6 +29,8 @@ class NowPlaying::CLI
         puts "Title of movie 2..."
       when "movies"
         list_movies
+      else
+        puts "What are you looking for this evening?"
       end
   end
 end
