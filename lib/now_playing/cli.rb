@@ -1,4 +1,4 @@
-class NowPlaying::cli
+class NowPlaying::CLI
 
   def call
     puts "Your Path to Hollywood:"
