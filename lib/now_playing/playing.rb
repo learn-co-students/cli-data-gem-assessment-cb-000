@@ -5,15 +5,6 @@ class NowPlaying::Playing
   attr_accessor :name, :price, :theater, :url
 
   def self.today
-    # Will pull movies playing today
-    #puts <<-DOC.gsub /^\s*/, ''
-      #Coco
-      #Wonder
-      #Justice League
-      #Thor: Ragnarok
-      #Wind River
-      #The Disaster Artist
-    ##DOC
 
     movie_1 = self.new
     movie_1.name = "Coco"
