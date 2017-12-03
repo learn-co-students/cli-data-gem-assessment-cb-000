@@ -5,7 +5,7 @@ require "now/playing/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "now-playing"
-  spec.version       = Now::Playing::VERSION
+  spec.version       = NowPlaying::VERSION="0.1.0"
   spec.authors       = ["Miguel Gonzalez"]
   spec.email         = ["sb.mgonzalez1@gmail.com"]
 
