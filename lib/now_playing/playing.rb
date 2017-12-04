@@ -20,6 +20,7 @@ class NowPlaying::Playing
 
     def self.scrape_imdb
       doc = Nokogiri::HTML(open("http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1"))
-      name = doc.css("td.overview-top h4 a").text
+      doc.css("td.overview-top h4 a").text
+      binding.pry
     end
 end
