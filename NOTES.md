@@ -31,4 +31,10 @@ I added to the **lib/now-playing** subfolder the following:
 * playing.rb -- This is my movies data/info scraper class/module
 * version.rb -- This defines my VERSION for the .gemspec file
 
-My **bin/now-playing** file is where I had the executable command to launch the app coded.  I referenced the **lib/now_playing** for all the code to run in the app.
+My **bin/now-playing** file is where I had the executable command to launch the app coded.  I referenced the **lib/now_playing**
+for all the code to run in the app.
+
+My main problem is in the 'scraping' aspect of it all.  I have done it on previous Ruby gems, but I guess I had a lot
+more "codealong" assistance on those.  Here, I'm designing the code and I guess its just sort of a mental block that's
+preventing my brain from conceptualizing or finding those itty, bitty parts of the HTML/CSS that will allow me to
+pull the info/data I need for this assignment.
