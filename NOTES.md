@@ -28,7 +28,7 @@ Basic files included:
 
 I added to the **lib/now-playing** subfolder the following:
 * cli.rb -- This is my cli controller class
-* movies.rb -- This is my movies data/info scraper class/module
+* playing.rb -- This is my movies data/info scraper class/module
 * version.rb -- This defines my VERSION for the .gemspec file
 
 My **bin/now-playing** file is where I had the executable command to launch the app coded.  I referenced the **lib/now_playing** for all the code to run in the app.
