@@ -4,7 +4,6 @@ require 'nokogiri'
 require 'open-uri'
 
 class NowPlaying::Playing
-  attr_accessor :name, :theater, :url, :summary
 
     def self.today
       # starts a scrape to return info for new movies playing in local theaters
@@ -33,6 +32,20 @@ class NowPlaying::Playing
       self.get_scrape_imdb.each do |post|
         movie = Movie.new
         movie.name = post.css("td.overview-top h4 a").text
+        movie.theater = post.css("").text
+        movie.url = post.css("").text
+        movie.summary = post.css("").text
       end
+    end
+
+    def print_scrape_imdb
+      self.make_info_imdb
+      Movie.all.each do |movie|
+        puts "Name: #{movie.name}"
+        puts "Theater: #{movie.theater}"
+        puts "URL: #{movie.url}"
+        puts "Summary: #{movie.summary}"
+      end
+    end
   end
 end
