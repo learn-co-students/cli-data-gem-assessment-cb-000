@@ -11,7 +11,7 @@ class NowPlaying::CLI
     puts "Most recent releases: "
     @movies = NowPlaying::Playing.today
     @movies.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.name} - #{movie.theater} - #{movie.url} - #{movie.summary}"
+      puts "#{i}. #{movie.name} - #{movie.url} - #{movie.summary}"
     end
   end
 

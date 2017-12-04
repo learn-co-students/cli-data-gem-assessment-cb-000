@@ -9,8 +9,8 @@ class NowPlaying::Playing
     end
 
     def self.scrape_movies
-      # go to Fandango
-      # scrape movie info from their website
+      # go to IMDB
+      # scrape "In Theaters" movie info from their website
       # instantiate a return that shows info for chosen movie
       movies = []
       movies << self.scrape_imdb
@@ -18,9 +18,13 @@ class NowPlaying::Playing
     end
 
     def self.scrape_imdb
-      doc = Nokogiri::HTML(open("http://www.imdb.com/"))
-      name = post.css("div.title-wrapper h1").text
-      binding.pry
+      doc = Nokogiri::HTML(open("http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1"))
+
+      movie = self.new
+      movie.name = doc.search("div.list_item.odd h4").first.text
+      movie.url = doc.search("div.list_item.odd a").first.attr("href")
+      movie.summary = doc.search("div.outline").first.text
+      movie
     end
 
 end
