@@ -19,11 +19,7 @@ class NowPlaying::Playing
     end
 
     def self.scrape_imdb
-      doc = Nokogiri::HTML(open("http://www.imdb.com"))
-      name = doc.search("h1.itemprop="name"").text
-      theater = doc.search("div.movie-showtimes_theater").text
-      url =
-      summary = doc.search("").text
+      doc = Nokogiri::HTML(open("http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1"))
       binding.pry
     end
 end
