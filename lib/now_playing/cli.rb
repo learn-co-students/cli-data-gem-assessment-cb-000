@@ -1,53 +1,37 @@
 class NowPlaying::CLI
 
   def call
-    start
-  end
+     puts "Your Path to Hollywood:"
+     list_movies
+     menu
+     goodbye
+   end
 
-  def list_movies
-    puts "Most recent releases: "
-    NowPlaying::Playing.each_with_index(1) do |movie, i|
-      puts "#{i}. #{movie.title} - #{movie.url} - #{movie.summary}"
-    end
-    puts ""
-  end
-
-  def print_movie(movie)
-    puts ""
-    puts "****#{movie.title}****"
-
-    puts ""
-    puts movie.url
-    puts ""
-
-    puts ""
-    puts movie.summary
-    puts ""
-  end
-
-  def start
-    list_movies
-    input = nil
-    while input != "exit"
-      puts ""
-      puts "Enter the name of the movie you're interested in learning more about today: "
-      puts ""
-      puts "Enter list_movies to see movies you've checked out again: "
-      puts "Enter exit, if you wish to leave."
-      puts ""
-      input = gets.strip
-      if input == "list_movies"
-        list_movies
-      elsif input.to_i == 0
-        if movie = NowPlaying::Playing.find_by_title(input)
-          print_movie(movie)
-        end
-      elsif input.to_i > 0
-        if movie = NowPlaying::Playing.find(input.to_i)
-        print_movie(movie)
+   def list_movies
+      puts "Most recent releases: "
+      @movies = NowPlaying::Playing.today
+      @movies.each.with_index(1) do |movie, i|
+       puts "#{i}. #{movie.name} - #{movie.url} - #{movie.summary}"
       end
     end
-  end
-    puts "See you at the movies!!"
-  end
+
+   def menu
+     input = nil
+     while input != "exit"
+       puts "Enter the title of the film you're looking for or type movies for more titles or type exit:"
+       input = gets.strip.downcase
+
+       if input.to_i > 0
+         puts @movies[input.to_i-1]
+       elsif input == "list"
+         list_movies
+       else
+         puts "What are you looking for this evening, type list or exit."
+       end
+   end
+ end
+
+   def goodbye
+     puts "See you at the movies!"
+   end
 end
