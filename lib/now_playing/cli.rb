@@ -6,7 +6,7 @@ class NowPlaying::CLI
 
   def list_movies
     puts "Most recent releases: "
-    NowPlaying::Playing.all.with_index(1) do |movie, i|
+    NowPlaying::Playing.each_with_index(1) do |movie, i|
       puts "#{i}. #{movie.title} - #{movie.url} - #{movie.summary}"
     end
     puts ""
@@ -32,12 +32,12 @@ class NowPlaying::CLI
       puts ""
       puts "Enter the name of the movie you're interested in learning more about today: "
       puts ""
-      puts "Enter list to see movies you've checked out again: "
+      puts "Enter list_movies to see movies you've checked out again: "
       puts "Enter exit, if you wish to leave."
       puts ""
       input = gets.strip
-      if input == "list"
-        list
+      if input == "list_movies"
+        list_movies
       elsif input.to_i == 0
         if movie = NowPlaying::Playing.find_by_title(input)
           print_movie(movie)

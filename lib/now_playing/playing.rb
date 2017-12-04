@@ -29,7 +29,6 @@ class NowPlaying::Playing
       @summary ||= plot_summary_doc.search("p.plotSummary").text.strip
     end
 
-    private
       def self.scrape_imdb
         doc = Nokogiri::HTML(open("http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1"))
 
