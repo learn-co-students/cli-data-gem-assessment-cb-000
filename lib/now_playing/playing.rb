@@ -1,5 +1,7 @@
 # I'm designing this around the IMDB site, so I can pull movie info by name (title),
 # times, locations, and other data that will help users make an informed decision
+require 'nokogiri'
+require 'open-uri'
 
 class NowPlaying::Playing
   attr_accessor :name, :theater, :url, :summary
@@ -20,7 +22,17 @@ class NowPlaying::Playing
 
     def self.scrape_imdb
       doc = Nokogiri::HTML(open("http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1"))
-      doc.css("td.overview-top h4 a").text
       binding.pry
     end
+
+    def get_scrape_imdb
+      self.scrape_imdb.css(".post")
+    end
+
+    def make_info_imdb
+      self.get_scrape_imdb.each do |post|
+        movie = Movie.new
+        movie.name = post.css("td.overview-top h4 a").text
+      end
+  end
 end
