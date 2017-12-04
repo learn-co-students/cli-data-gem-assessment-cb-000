@@ -3,6 +3,7 @@
 
 class NowPlaying::Playing
   attr_accessor :title, :url, :summary
+  @@all
 
   def initialize(title = nil, url = nil)
     @title = title
@@ -10,7 +11,7 @@ class NowPlaying::Playing
   end
 
     def self.all
-      @@all ||= scrape_movies
+      @@all ||= scrape_imdb
     end
 
     def self.find(id)

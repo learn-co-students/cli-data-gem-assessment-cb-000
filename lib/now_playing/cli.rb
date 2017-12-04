@@ -6,9 +6,10 @@ class NowPlaying::CLI
 
   def list_movies
     puts "Most recent releases: "
-    NowPlaying::Playing.all.each.with_index(1) do |movie, i|
+    NowPlaying::Playing.all.with_index(1) do |movie, i|
       puts "#{i}. #{movie.title} - #{movie.url} - #{movie.summary}"
     end
+    puts ""
   end
 
   def print_movie(movie)
@@ -42,10 +43,11 @@ class NowPlaying::CLI
           print_movie(movie)
         end
       elsif input.to_i > 0
+        if movie = NowPlaying::Playing.find(input.to_i)
         print_movie(movie)
       end
     end
   end
-  puts "See you at the movies!!"
-end
+    puts "See you at the movies!!"
+  end
 end

@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require "bundler/setup"
+
 require "now_playing"
 NowPlaying::CLI.new.call
