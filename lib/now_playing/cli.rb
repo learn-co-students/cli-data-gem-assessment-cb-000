@@ -10,13 +10,15 @@ class NowPlaying::CLI
    def list_movies
       puts "Most recent releases: "
       @movies = NowPlaying::Playing.today
+      @movies.each.with_index(1) do |movie, i|
+        puts "#{i}. #{movie.title} - #{movie.url} - #{movie.summary}"
     end
   end
 
    def menu
      input = nil
      while input != "exit"
-       puts "Enter the title of the film you're looking for or type movies for more titles or type exit:"
+       puts "Enter the number from list, of the film you're looking for or type exit:"
        input = gets.strip.downcase
 
        if input.to_i > 0
@@ -31,4 +33,5 @@ class NowPlaying::CLI
    def goodbye
      puts "See you at the movies!"
    end
+end
 end
