@@ -15,7 +15,6 @@ Basic files included:
 * lib
 * -> now-playing
 * spec
-* rspec
 * CODE_OF_CONDUCT
 * Gemfile
 * Gemfile.lock
@@ -38,3 +37,8 @@ My main problem is in the 'scraping' aspect of it all.  I have done it on previo
 more "codealong" assistance on those.  Here, I'm designing the code and I guess its just sort of a mental block that's
 preventing my brain from conceptualizing or finding those itty, bitty parts of the HTML/CSS that will allow me to
 pull the info/data I need for this assignment.
+
+I think I'm "refactoring", or just rewriting a lot of the code in the cli.rb and the playing.rb files, so that they work in
+conjunction with each other better.  However, I'm getting lots of broken code errors. Most notably, "nomethod".
+
+Overall, when I got to the end of the video, from Avi, I realized that my gem was actually doing what it needed to do...for now.  Of course, me being me, I'd like to learn how to make it a lot more functional and increase its ability to scrape from other sites and put more movie info in the final results.  
