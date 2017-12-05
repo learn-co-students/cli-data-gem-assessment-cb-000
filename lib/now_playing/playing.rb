@@ -20,10 +20,9 @@ class NowPlaying::Playing
     def self.scrape_imdb
         doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/'))
 
-        movie = self.new
-        movie.title = doc.search("div.list_item.odd h4").first.text
-        movie.url = doc.search("div.list_item.odd a").first.attr("href")
-        movie.summary = doc.search("div.outline").first.text
-        movie
-    end
+        self.new
+        title = doc.search("div.list_item.odd h4").first.text
+        url = doc.search("div.list_item.odd a").first.attr("href")
+        summary = doc.search("div.outline").first.text
+      end
 end

@@ -10,10 +10,8 @@ class NowPlaying::CLI
    def list_movies
       puts "Most recent releases: "
       @movies = NowPlaying::Playing.today
-      @movies.each.with_index(1) do |movie, i|
-       puts "#{i}. #{movie.name} - #{movie.url} - #{movie.summary}"
-      end
     end
+  end
 
    def menu
      input = nil
@@ -29,7 +27,6 @@ class NowPlaying::CLI
          puts "What are you looking for this evening, type list or exit."
        end
    end
- end
 
    def goodbye
      puts "See you at the movies!"
