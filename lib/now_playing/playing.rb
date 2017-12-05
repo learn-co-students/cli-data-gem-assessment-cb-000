@@ -18,8 +18,16 @@ class NowPlaying::Playing
         movies
       end
 
+<<<<<<< HEAD
       def self.scrape_imdb
         doc = Nokogiri::HTML(open('http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1'))
+=======
+    def self.scrape_imdb
+      doc = Nokogiri::HTML(open("http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1"))
+      name = doc.search("h4").text
+      binding.pry
+    end
+>>>>>>> ca10345c72a43306a356f7e60b6676597d957920
 
         movie = self.new
         movie.title = doc.search("div.list_item.odd h4").first.text
