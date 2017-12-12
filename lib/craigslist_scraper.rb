@@ -1,21 +1,13 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
+require "open-uri"
+require "nokogiri"
 
-
+search_url = "https://philadelphia.craigslist.org/search/sss?query=oneplus" #Temp only
 class CraigslistScraper
   def self.scrape_search_page(search_url)
     html = open(search_url)
     search = Nokogiri::HTML(html)
-# search.css("li.result-row time").attribute("datetime").value #date/time
-# search.css("li.result-row a.result-image").first.text.strip #price
-# search.css("li.result-row a.result-title").first.text.strip #title
-# search.css("li.result-row span.result-meta span.result-hood").first.text.strip #location
-    @@listings = []
     search.css("li.result-row").map {|listing| {:listing_url => listing.css("a").attribute("href").value}}
   end
-
-
 
   def self.scrape_listing_page(listing_url)
     html2 = open(listing_url)
@@ -27,5 +19,6 @@ class CraigslistScraper
      :description => listing.css("#postingbody").text.strip #Description
     }
   end
+
 
 end

@@ -1,19 +1,24 @@
 require_relative "../lib/craigslist_scraper.rb"
 require_relative "../lib/listing.rb"
-require 'nokogiri'
-require 'colorize'
+require "cgi"
+require "colorize"
 
 class CommandLineInteface
-  SEARCH_URL = "https://philadelphia.craigslist.org/search/sss?query=hp+laptop+8gb&max_price=750" #Only Temporary
 
   def run
-    make_listings
+    puts "\n\nWelcome to Craigslist Search!\n\n"
+    puts "What city do you want to search (try: Philadelphia, Chicago, or NewYork)"
+    city = gets.strip.gsub(/\s+/,"")
+    puts "Please enter the item for which you would like to search. (e.g. Laptop, bike, or sofa)"
+    item = CGI.escape(gets.strip)
+    search_url = "https://#{city}.craigslist.org/search/sss?query=#{item}"
+    make_listings(search_url)
     add_details_to_listings
     display_listings
   end
 
-  def make_listings
-    listings_array = CraigslistScraper.scrape_search_page(SEARCH_URL)
+  def make_listings(search_url)
+    listings_array = CraigslistScraper.scrape_search_page(search_url)
     Listing.create_from_collection(listings_array)
   end
 
@@ -34,5 +39,4 @@ class CommandLineInteface
       puts "----------------------".colorize(:green)
     end
   end
-
 end
