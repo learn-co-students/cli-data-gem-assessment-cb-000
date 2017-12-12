@@ -9,10 +9,11 @@ class CommandLineInteface
     city = ""
     puts "\n\nWelcome to Craigslist Search!\n\n"
     until ["philadelphia", "chicago", "newyork", "houston", "losangeles"].detect {|loc| loc == city} do
-      puts "\n\nWhat city do you want to search (try: Philadelphia, Chicago, or NewYork)\n"
+      puts "\n\nWhat city do you want to search (try: Philadelphia, Chicago, Houston, Los Angeles, or New York)\n"
       city = gets.strip.gsub(/\s+/,"").downcase
     end
-    puts "\n\nPlease enter the item for which you would like to search. (e.g. Laptop, bike, or sofa)\n"
+    puts "\n\nPlease enter the item for which you would like to search."
+    puts "(e.g. 'sliding compound miter saw', 'miller stick welder', or 'cordless hammer drill')\n"
     item = CGI.escape(gets.strip)
     search_url = "https://#{city}.craigslist.org/search/sss?query=#{item}"
     make_listings(search_url)
