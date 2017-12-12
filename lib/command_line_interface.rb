@@ -6,10 +6,13 @@ require "colorize"
 class CommandLineInteface
 
   def run
+    city = ""
     puts "\n\nWelcome to Craigslist Search!\n\n"
-    puts "What city do you want to search (try: Philadelphia, Chicago, or NewYork)"
-    city = gets.strip.gsub(/\s+/,"")
-    puts "Please enter the item for which you would like to search. (e.g. Laptop, bike, or sofa)"
+    until ["philadelphia", "chicago", "newyork", "houston", "losangeles"].detect {|loc| loc == city} do
+      puts "\n\nWhat city do you want to search (try: Philadelphia, Chicago, or NewYork)\n"
+      city = gets.strip.gsub(/\s+/,"").downcase
+    end
+    puts "\n\nPlease enter the item for which you would like to search. (e.g. Laptop, bike, or sofa)\n"
     item = CGI.escape(gets.strip)
     search_url = "https://#{city}.craigslist.org/search/sss?query=#{item}"
     make_listings(search_url)
